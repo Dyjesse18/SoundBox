@@ -92,21 +92,27 @@ public class Beatbox extends JFrame implements ActionListener {
                 switch(button.getActionCommand() ) {
                         case " One ":
                                 sound1 = true;
+                                Sound =true;
                                 break;
                         case " Two ":
                                 sound2 = true;
+                                Sound =true;
                                 break;
                         case " Three ":
                                 sound3 = true;
+                                Sound =true;
                                 break;
                         case " Four ":
                                 sound4 = true;
+                                Sound =true;
                                 break;
                         case " Five ":
                                 sound5 = true;
+                                Sound =true;
                                 break;
                         case " Six ":
                                 sound6 = true;
+                                Sound =true;
                                 break;
                         default:
                                 JOptionPane.showMessageDialog( this, "WHERE ARE YOU! THIS DOESNT EXIST!OH GOD HOW DID YOU GET HERE" );
@@ -141,7 +147,7 @@ public class Beatbox extends JFrame implements ActionListener {
                      String wavFile = .wav;
                 }//end of sound6
                 new LayoutTest();
-                if(sound==true)
+                if(Sound==true)
                 {
                         try
                         {
