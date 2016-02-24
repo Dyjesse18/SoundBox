@@ -116,7 +116,30 @@ public class Beatbox extends JFrame implements ActionListener {
         }//end of action performed
         
         public static void main(String[] args) {
-                
+                If(sound1== true)
+                {
+                     String wavFile = Alarm01.wav;
+                }//end of sound1
+                If(sound2== true)
+                {
+                     String wavFile = tada.wav;
+                }//end of sound2
+                If(sound3== true)
+                {
+                     String wavFile = .wav;
+                }//end of sound3
+                If(sound4== true)
+                {
+                     String wavFile = .wav;
+                }//end of sound4
+                If(sound5== true)
+                {
+                     String wavFile = .wav;
+                }//end of sound5
+                If(sound6== true)
+                {
+                     String wavFile = .wav;
+                }//end of sound6
                 new LayoutTest();
                 if(sound==true)
                 {
@@ -155,4 +178,3 @@ public class Beatbox extends JFrame implements ActionListener {
 
   }//end of program
   
-
