@@ -7,7 +7,7 @@ import java.io.*;
 //this program will have:
 //6 buttons
 //1 soundbutton panel
-//
+//play sounds from the windows system
 
 public class Beatbox extends JFrame implements ActionListener {
         
@@ -136,51 +136,58 @@ public class Beatbox extends JFrame implements ActionListener {
                 }//end of sound3
                 If(sound4== true)
                 {
-                     String wavFile = .wav;
+                     String wavFile = Alarm02.wav;
                 }//end of sound4
                 If(sound5== true)
                 {
-                     String wavFile = .wav;
+                     String wavFile = Alarm03.wav;
                 }//end of sound5
                 If(sound6== true)
                 {
-                     String wavFile = .wav;
+                     String wavFile = Alarm04.wav;
                 }//end of sound6
                 new LayoutTest();
-                if(Sound==true)
-                {
-                        try
-                        {
-                                WavFile wavFile = WavFile.openWavFile(new File(args[0]));
-                                int framesRead;
-                                double min = Double.MAX_VALUE;
-                                double max = Double.MIN_VALUE;
-                                wavFile.display();
-                                int numChannels = wavFile.getNumChannels();
-                                double[] buffer = new double[100 * numChannels];
-                        
-                        do
-                        {
-                                framesRead = wavFile.readFrames(buffer, 100);
-                                for (int s=0 ; s<framesRead * numChannels ; s++)
-                                { 
-                                        if (buffer[s] > max) max = buffer[s];
-                                        if (buffer[s] < min) min = buffer[s];
-                                }//end of for loop
-                                
-                        }//end of do
-                        while (framesRead != 0);
-                        {
-                                wavFile.close();
-                        }//while end
-                        catch (Exception r)
-                        {
-                                System.err.println(r);
-                        }//catch end
-                        sound= false;
-                }//end of sound
+                Thread thread = new Thread(new myRunnable());
+                thread.start();
                 
         }//main method end
-
+                Runnable myRunnable = new Runnable()
+                {
+                        public void run()
+                        {
+                                if(Sound==true)
+                                {
+                                        
+                                        try
+                                        {
+                                                WavFile wavFile = WavFile.openWavFile(new File(args[0]));
+                                                int framesRead;
+                                                double min = Double.MAX_VALUE;
+                                                double max = Double.MIN_VALUE;
+                                                wavFile.display();
+                                                int numChannels = wavFile.getNumChannels();
+                                                double[] buffer = new double[100 * numChannels];
+                        
+                                        do
+                                        {
+                                                framesRead = wavFile.readFrames(buffer, 100);
+                                                for (int s=0 ; s<framesRead * numChannels ; s++)
+                                                { 
+                                                        if (buffer[s] > max) max = buffer[s];
+                                                        if (buffer[s] < min) min = buffer[s];
+                                                }//end of for loop
+                                
+                                        }//end of do
+                                        while (framesRead != 0);
+                                        {
+                                                wavFile.close();
+                                        }//while end
+                                        catch (Exception r)
+                                        {
+                                                System.err.println(r);
+                                        }//catch end
+                                        sound= false;
+                                }//end of sound
+                        }//end of run
+                }//end of runnable
   }//end of program
-  
