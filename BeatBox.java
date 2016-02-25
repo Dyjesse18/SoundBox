@@ -159,10 +159,9 @@ public class Beatbox extends JFrame implements ActionListener {
                 {
                         public void run()
                         {
-                                        
-                                        try
+                                 try
                                         {
-                                                WavFile wavFile = WavFile.openWavFile(new File(args[0]));
+                                                WavFile wavFile = WavFile.openwavFile(new File(args[0]));
                                                 int framesRead;
                                                 double min = Double.MAX_VALUE;
                                                 double max = Double.MIN_VALUE;
@@ -188,7 +187,7 @@ public class Beatbox extends JFrame implements ActionListener {
                                         {
                                                 System.err.println(r);
                                         }//catch end
-                                        sound= false;
+                                        sound= false;        
                         }//end of run
                 }//end of runnable        
         }//end of sound 
