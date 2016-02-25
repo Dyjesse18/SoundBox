@@ -22,6 +22,7 @@ public class Beatbox extends JFrame implements ActionListener {
         private boolean sound4 = false;
         private boolean sound5 = false;
         private boolean sound6 = false;
+        private boolean sound  = false;
         
         public LayoutTest() {
                 
@@ -123,55 +124,81 @@ public class Beatbox extends JFrame implements ActionListener {
         }//end of action performed
         
         public static void main(String[] args) {
+                //list of buttons changing to files
                 If(sound1== true)
                 {
                      String wavFile = Alarm01.wav;
                 }//end of sound1
+                
                 If(sound2== true)
                 {
                      String wavFile = tada.wav;
                 }//end of sound2
+                
                 If(sound3== true)
                 {
                      String wavFile = .wav;
                 }//end of sound3
+                
                 If(sound4== true)
                 {
                      String wavFile = Alarm02.wav;
                 }//end of sound4
+                
                 If(sound5== true)
                 {
                      String wavFile = Alarm03.wav;
                 }//end of sound5
+                
                 If(sound6== true)
                 {
                      String wavFile = Alarm04.wav;
                 }//end of sound6
+                
+                //creates the layout
                 new LayoutTest();
+                
+                //creates the runnable
                 Thread thread = new Thread(new myRunnable());
                 
                 
         }//main method end
         if(Sound==true)
         {
+                //starts thread
                 thread.start();
+                
+                //runs the code together
                 Runnable myRunnable = new Runnable()
                 {
                         public void run()
                         {
                                  try
                                         {
+                                                //selects wav file based on button
                                                 WavFile wavFile = WavFile.openwavFile(new File(args[0]));
+                                                
+                                                //variables needed to play wav file
                                                 int framesRead;
                                                 double min = Double.MAX_VALUE;
                                                 double max = Double.MIN_VALUE;
+                                                
+                                                //displays the wav file
                                                 wavFile.display();
+                                                
+                                                //retrieves number of channels
                                                 int numChannels = wavFile.getNumChannels();
+                                                
+                                                //creates a buffer
                                                 double[] buffer = new double[100 * numChannels];
                         
                                         do
                                         {
+                                                //reads the amount of frames in the wav file
+                                                
                                                 framesRead = wavFile.readFrames(buffer, 100);
+                                                //for loop
+                                                
                                                 for (int s=0 ; s<framesRead * numChannels ; s++)
                                                 { 
                                                         if (buffer[s] > max) max = buffer[s];
@@ -181,10 +208,12 @@ public class Beatbox extends JFrame implements ActionListener {
                                         }//end of do
                                         while (framesRead != 0);
                                         {
+                                                //closes wav file
                                                 wavFile.close();
                                         }//while end
                                         catch (Exception r)
                                         {
+                                                //prints errors in console
                                                 System.err.println(r);
                                         }//catch end
                                         sound= false;        
