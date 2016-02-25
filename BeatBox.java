@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.swing.*;
 import java.io.*;
+import java.lang.*;
 
 
 //this program will have:
@@ -148,15 +149,16 @@ public class Beatbox extends JFrame implements ActionListener {
                 }//end of sound6
                 new LayoutTest();
                 Thread thread = new Thread(new myRunnable());
-                thread.start();
+                
                 
         }//main method end
+        if(Sound==true)
+        {
+                thread.start();
                 Runnable myRunnable = new Runnable()
                 {
                         public void run()
                         {
-                                if(Sound==true)
-                                {
                                         
                                         try
                                         {
@@ -187,7 +189,7 @@ public class Beatbox extends JFrame implements ActionListener {
                                                 System.err.println(r);
                                         }//catch end
                                         sound= false;
-                                }//end of sound
                         }//end of run
-                }//end of runnable
+                }//end of runnable        
+        }//end of sound 
   }//end of program
