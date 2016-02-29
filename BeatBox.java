@@ -16,13 +16,13 @@ public class Beatbox extends JFrame implements ActionListener {
         private static final long serialVersionUID = 1;
         private JPanel mainPanel;
         private JPanel buttonPanel;
-        private boolean sound1 = false;
-        private boolean sound2 = false;
-        private boolean sound3 = false;
-        private boolean sound4 = false;
-        private boolean sound5 = false;
-        private boolean sound6 = false;
-        private boolean sound  = false;
+        private static boolean sound1 = false;
+        private static boolean sound2 = false;
+        private static boolean sound3 = false;
+        private static boolean sound4 = false;
+        private static boolean sound5 = false;
+        private static boolean sound6 = false;
+        private static boolean sound  = false;
         
         public LayoutTest() {
                 
@@ -125,34 +125,34 @@ public class Beatbox extends JFrame implements ActionListener {
         
         public static void main(String[] args) {
                 //list of buttons changing to files
-                If(sound1== true)
+                if(sound1== true)
                 {
-                     String wavFile = Alarm01.wav;
+                     String wavFile = "Alarm01.wav";
                 }//end of sound1
                 
-                If(sound2== true)
+                if(sound2== true)
                 {
-                     String wavFile = tada.wav;
+                     String wavFile = "tada.wav";
                 }//end of sound2
                 
-                If(sound3== true)
+                if(sound3== true)
                 {
-                     String wavFile = .wav;
+                     String wavFile = "Alarm05.wav";
                 }//end of sound3
                 
-                If(sound4== true)
+                if(sound4== true)
                 {
-                     String wavFile = Alarm02.wav;
+                     String wavFile = "Alarm02.wav";
                 }//end of sound4
                 
-                If(sound5== true)
+                if(sound5== true)
                 {
-                     String wavFile = Alarm03.wav;
+                     String wavFile = "Alarm03.wav";
                 }//end of sound5
                 
-                If(sound6== true)
+                if(sound6== true)
                 {
-                     String wavFile = Alarm04.wav;
+                     String wavFile = "Alarm04.wav";
                 }//end of sound6
                 
                 //creates the layout
