@@ -95,26 +95,32 @@ public class Beatbox extends JFrame implements ActionListener {
                         case " One ":
                                 fileName= "Alarm01.wav";
                                 flag= true;
+                                System.out.println("Playing Alarm01");
                                 break;
                         case " Two ":
                                 fileName = "Alarm02.wav";
                                 flag= true;
+                                System.out.println("Playing Alarm02");
                                 break;
                         case " Three ":
                                 fileName = "tada.wav";
                                 flag= true;
+                                System.out.println("Playing tada");
                                 break;
                         case " Four ":
                                 fileName = "Alarm03.wav";
                                 flag= true;
+                                System.out.println("Playing Alarm03");
                                 break;
                         case " Five ":
                                 fileName = "Alarm04.wav";
                                 flag= true;
+                                System.out.println("Playing Alarm04");
                                 break;
                         case " Six ":
                                 fileName = "notify.wav";
                                 flag= true;
+                                System.out.println("Playing notify");
                                 break;
                         default:
                                 JOptionPane.showMessageDialog( this, "WHERE ARE YOU! THIS DOESNT EXIST!OH GOD HOW DID YOU GET HERE" );
@@ -124,6 +130,8 @@ public class Beatbox extends JFrame implements ActionListener {
         }//end of action performed
 public static void mian(String[] args)
 {
+        final int sleepSec = Interfer.parseInt(args[100]);
+        
         //finds the file for sound
         File soundFile = new File("This PC/OS(C:)/Windows//media/" + fileName);
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
@@ -149,6 +157,7 @@ public static void mian(String[] args)
                 //clip starts
                 clip.start();
                 //stops playing clips
+                thread.sleep(sleepSec);
                 flag = false;
         }//END OF FLAG
 }//end of main
