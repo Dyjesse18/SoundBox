@@ -22,6 +22,7 @@ public class Beatbox extends JFrame implements ActionListener {
         private static final long serialVersionUID = 1;
         private JPanel mainPanel;
         private JPanel buttonPanel;
+        boolean static flag = false;
         
         public LayoutTest() {
                 
@@ -93,21 +94,27 @@ public class Beatbox extends JFrame implements ActionListener {
                 switch(button.getActionCommand() ) {
                         case " One ":
                                 fileName= "Alarm01.wav";
+                                flag= true;
                                 break;
                         case " Two ":
                                 fileName = "Alarm02.wav";
+                                flag= true;
                                 break;
                         case " Three ":
                                 fileName = "tada.wav";
+                                flag= true;
                                 break;
                         case " Four ":
                                 fileName = "Alarm03.wav";
+                                flag= true;
                                 break;
                         case " Five ":
                                 fileName = "Alarm04.wav";
+                                flag= true;
                                 break;
                         case " Six ":
                                 fileName = "notify.wav";
+                                flag= true;
                                 break;
                         default:
                                 JOptionPane.showMessageDialog( this, "WHERE ARE YOU! THIS DOESNT EXIST!OH GOD HOW DID YOU GET HERE" );
@@ -117,9 +124,11 @@ public class Beatbox extends JFrame implements ActionListener {
         }//end of action performed
 public static void mian(String[] args)
 {
+        //finds the file for sound
         File soundFile = new File("This PC/OS(C:)/Windows//media/" + fileName);
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
         
+        //gets the data for the clip
         DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
         Clip clip = (Clip) AudioSystem.getLine(info);
         clip.open(sound);
@@ -135,6 +144,12 @@ public static void mian(String[] args)
                         }//if end
                 }//update end
         });//end of clip listener
-        clip.start();
+        if(flag==true)
+        {
+                //clip starts
+                clip.start();
+                //stops playing clips
+                flag = false;
+        }//END OF FLAG
 }//end of main
       
