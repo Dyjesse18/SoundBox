@@ -156,8 +156,9 @@ public static void mian(String[] args)
         {
                 //clip starts
                 clip.start();
-                //stops playing clips
+                //pause in between
                 thread.sleep(sleepSec);
+                //stops playing clips
                 flag = false;
         }//END OF FLAG
 }//end of main
