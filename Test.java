@@ -50,7 +50,6 @@ public class Test extends JFrame implements ActionListener {
                 c.weightx = 0.0;
                 c.gridwidth = GridBagConstraints.RELATIVE;
         
-                
                 myLabel2= new JLable("Your hp:" + YourHP);
                 myLabel2.setForeground(Color.BLUE);
                 myLabel2.setFont(new Font("TimesRoman", Font.BOLD, 24));
@@ -141,10 +140,14 @@ public class Test extends JFrame implements ActionListener {
                 //button actions 
                 switch(button.getActionCommand() ) {
                         case " One ":
+                                fileName= "Alarm08.wav";
+                                flag = true;
                                 buttonPanel.setvisible(false);
                                 buttonPanel1.setvisble(true);
                                 break;
                         case " Two ":
+                                fileName= "Alarm07.wav";
+                                flag = true;
                                 buttonPanel.setvisible(false);
                                 buttonPanel2.setvisble(true);
                                 break;
@@ -163,18 +166,24 @@ public class Test extends JFrame implements ActionListener {
                 //button actions 
                 switch(button1.getActionCommand() ) {
                         case " 1 ":
-                                EnemyHP-x;
-                                YourHP-x;
+                                fileName= "Alarm04.wav";
+                                flag = true;
+                                YourHP + x;
+                                YourHP - x-1;
                                 buttonPanel1.setvisible(false);
                                 buttonPanel.setvisible(true);
                                 break;
                         case " 2 ":
-                                EnemyHP-x;
+                                fileName= "Alarm05.wav";
+                                flag = true;
+                                EnemyHP-x+1;
                                 YourHP-x;
                                 buttonPanel1.setvisible(false);
                                 buttonPanel.setvisible(true);
                                 break;
                         case " 3 ":
+                                fileName= "Alarm03.wav";
+                                flag = true;
                                 buttonPanel1.setvisible(false);
                                 buttonPanel.setvisible(true);
                                 break;
@@ -185,12 +194,6 @@ public class Test extends JFrame implements ActionListener {
                 }//end of switch
         }//end of action performed f
         
-        
-        
-        
-        
-        
-        
         public void  actionPerformed( ActionEvent g ){
                 JButton button2 = (JButton)g.getSource();
                 
@@ -198,21 +201,26 @@ public class Test extends JFrame implements ActionListener {
                 switch(button2.getActionCommand() ) {
                         case " a ":
                                 EnemyHP-x;
+                                fileName= "Alarm02.wav";
+                                flag = true;
                                 YourHP-x;
                                 buttonPanel2.setvisible(false);
                                 buttonPanel.setvisible(true);
                                 break;
                         case " b ":
                                 EnemyHP-x;
+                                fileName= "Alarm01.wav";
+                                flag = true;
                                 YourHP-x;
                                 buttonPanel2.setvisible(false);
                                 buttonPanel.setvisible(true);
                                 break;
                         case " c ":
+                                fileName= "Alarm03.wav";
+                                flag = true;
                                 buttonPanel2.setvisible(false);
                                 buttonPanel.setvisible(true);
                                 break;
-
                         default:
                                 JOptionPane.showMessageDialog( this, "WHERE ARE YOU! THIS DOESNT EXIST!OH GOD HOW DID YOU GET HERE" );
                                 break;
@@ -222,12 +230,49 @@ public class Test extends JFrame implements ActionListener {
 public static void main(Strings[]args)
 {
         new.layoutTest();
+        
+        final int sleepSec = Interfer.parseInt(args[100]);
+        
+        //finds the file for sound
+        File soundFile = new File("This PC/OS(C:)/Windows//media/" + fileName);
+        AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
+        
+        //gets the data for the clip
+        DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
+        Clip clip = (Clip) AudioSystem.getLine(info);
+        clip.open(sound);
+        
+        clip.addLineListener(new LineListener() 
+        {
+                public void update(LineEvent event) 
+                {
+                        if (event.getType() == LineEvent.Type.STOP)
+                        {
+                                event.getLine().close();
+                                System.exit(0);
+                        }//if end
+                }//update end
+        });//end of clip listener
+        if(flag==true)
+        {
+                //clip starts
+                clip.start();
+                //pause in between
+                thread.sleep(sleepSec);
+                //stops playing clips
+                flag = false;
+        }//END OF FLAG
+        
         if(EnemyHP<= 0)
         {
-                JOptionPane.showMessageDialog( this, "YOU WIN");    
+                JOptionPane.showMessageDialog( this, "YOU WIN"); 
+                fileName = "tada.wav";
+                flag = true;
         }//if win
         if(YourHP<=0)
         {
                 JOptionPane.showMessageDialog( this, "YOU LOSE");
+                fileName = "Windows Hardware Insert.wav";
+                flag = true;
         }//if lose
 }//end of main
