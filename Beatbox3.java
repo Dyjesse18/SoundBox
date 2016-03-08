@@ -31,6 +31,45 @@ public class Beatbox extends JFrame implements ActionListener {
                 JButton button;
                 JLable label;
                 
+                //array list for sounds
+                anArray[0] = "Alarm01.wav";
+                        System.out.println("Element0_created");
+                        
+                                File soundFile0 = new File("This PC/OS(C:)/Windows//media/Alarm01.wav");
+                                        System.out.println("Sound_Alarm01.wav_Loaded");
+                                
+                anArray[1] = "Alarm02.wav";
+                        System.out.println("Element1_created");
+                        
+                                File soundFile1 = new File("This PC/OS(C:)/Windows//media/Alarm02.wav");
+                                        System.out.println("Sound_Alarm02.wav_Loaded");
+                                
+                anArray[2] = "tada.wav";
+                        System.out.println("Element2_created");
+                
+                                File soundFile2 = new File("This PC/OS(C:)/Windows//media/tada.wav");
+                                        System.out.println("Sound_tada.wav_Loaded");
+                                
+                anArray[3] = "Alarm03.wav";
+                        System.out.println("Element3_created");
+                
+                                File soundFile3 = new File("This PC/OS(C:)/Windows//media/Alarm03.wav");
+                                        System.out.println("Sound_Alarm03.wav_Loaded");
+                                
+                anArray[4] = "Alarm04.wav";
+                        System.out.println("Element4_created");
+                
+                                File soundFile4 = new File("This PC/OS(C:)/Windows//media/Alarm04.wav");
+                                        System.out.println("Sound_Alarm04.wav_Loaded");
+                                
+                anArray[5] = "notify.wav";
+                        System.out.println("Element5_created");
+                
+                                File soundFile5 = new File("This PC/OS(C:)/Windows//media/notify.wav");
+                                        System.out.println("Sound_notify.wav_Loaded");
+                                
+                                        System.out.println("Array_List_Created");
+                
                 JFrame myFrame = new JFrame("Beat_Box");
                         System.out.println("Created_JFrame");
                         
@@ -50,86 +89,89 @@ public class Beatbox extends JFrame implements ActionListener {
                 setLayout( new BorderLayout() );
                         System.out.println("Border_Created")
                 
-                // general constraints
+                        System.out.println("Creating_General_Constraints");
                 GridBagConstraints c = new GridBagConstraints();
                 c.fill = GridBagConstraints.BOTH;
         
-                // label constraints
+                        System.out.println("Creating_Restraints");
                 c.weightx = 0.0;
                 c.gridwidth = GridBagConstraints.RELATIVE;
                 
-                //creates the button
+                        System.out.println("Creating_ButtonPanel");
                 buttonPanel = new JPanel();
                 
-                //creates the button layout
+                        System.out.println("Creating_ButtonPanel_Layout");
                 buttonPanel.setLayout( new GridLayout(1 , 8) );
                 
-                //creates record button 7
+                        System.out.println("Creating_Record_Button");
                 button = new JButton( "Record" );
                 button.setActionCommand( " Seven " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Record_Button_Added_To_ButtonPanel");
                 
-                //creates button 1
+                        System.out.println("Creating_Button1");
                 button = new JButton( "Sound1" );
                 button.setActionCommand( " One " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Sound1_Button_Added_To_ButtonPanel");
                 
-                //creates button 2
+                        System.out.println("Creating_Button2");
                 button = new JButton( "Sound2" );
                 button.setActionCommand( " Two " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Sound2_Button_Added_To_ButtonPanel");
                 
-                //creates button 3
+                        System.out.println("Creating_Button3");
                 button = new JButton( "Sound3" );
                 button.setActionCommand( " Three " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Sound3_Button_Added_To_ButtonPanel");
                 
-                //creates button 4
+                        System.out.println("Creating_Sound4");
                 button = new JButton( "Sound4" );
                 button.setActionCommand( " Four " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Sound4_Button_Added_To_ButtonPanel");
                 
-                //creates button 5
+                System.out.println("Creating_Button5");
                 button = new JButton( "Sound5" );
                 button.setActionCommand( " Five " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Sound5_Button_Added_To_ButtonPanel");
                 
-                //creates button 6
+                        System.out.println("Creating_Button6");
                 button = new JButton( "Sound6" );
                 button.setActionCommand( " Six " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Sound6_Button_Added_To_ButtonPanel");
                 
-                //creates play button8
+                        System.out.println("Creating_Play_Button");
                 button = new JButton( "Play" );
                 button.setActionCommand( " Eight " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
                         System.out.println("Play_Button_Added_To_ButtonPanel");
                 
-                //adds buttons
+                        System.out.println("Adding_Buttons_To_ButtonPanel");
                 add(buttonPanel, BorderLayout.SOUTH);
+                        System.out.println("Added_Buttons_to_ButtonPanel");
 
-                //sizes the window to the prefered size
+                        System.out.println("Sizing_Window");
                 setSize( getPreferredSize() );
-                //packs all the components together
+                        System.out.println("Window_Sized");
+                        
+                        System.out.println("Packing_Components_Into_Window");
                 pack();
                         System.out.println("Window_components_have_been_packed");
                         
-                //makes the window visible
+                        System.out.println("");
                 setVisible( true );
                         System.out.println("Window_is_now_visible");
                 
@@ -141,7 +183,8 @@ public class Beatbox extends JFrame implements ActionListener {
                 //button actions 
                 switch(button.getActionCommand() ) {
                         case " One ":
-                                fileName= "Alarm01.wav";
+                                fileName= anArray[0];
+                                soundFile = soundFile0;
                                         System.out.println("Selected_Alarm01");
                                         
                                 //clip starts
@@ -150,7 +193,8 @@ public class Beatbox extends JFrame implements ActionListener {
                                         
                                 break;
                         case " Two ":
-                                fileName = "Alarm02.wav";
+                                fileName = anArray[1];
+                                soundFile = soundFile1;
                                         System.out.println("Selected_Alarm02");
                                 
                                 //clip starts
@@ -159,7 +203,8 @@ public class Beatbox extends JFrame implements ActionListener {
                                         
                                 break;
                         case " Three ":
-                                fileName = "tada.wav";
+                                fileName = anArray[2];
+                                soundFile = soundFile2;
                                         System.out.println("Selected_tada");
                                         
                                 //clip starts
@@ -168,7 +213,8 @@ public class Beatbox extends JFrame implements ActionListener {
                                         
                                 break;
                         case " Four ":
-                                fileName = "Alarm03.wav";
+                                fileName = anArray[3];
+                                soundFile = soundFile3;
                                         System.out.println("Selected_Alarm03");
                                 //clip starts
                                 clip.start();
@@ -177,7 +223,8 @@ public class Beatbox extends JFrame implements ActionListener {
                                         
                                 break;
                         case " Five ":
-                                fileName = "Alarm04.wav";
+                                fileName = anArray[4];
+                                soundFile = soundFile4;
                                         System.out.println("Selected_Alarm04");
                                 
                                 
@@ -187,7 +234,8 @@ public class Beatbox extends JFrame implements ActionListener {
                                                 
                                 break;
                         case " Six ":
-                                fileName = "notify.wav";
+                                fileName = anArray[5];
+                                soundFile = soundFile5;
                                         System.out.println("Selected_notify");
                                                 
                                 //clip starts
@@ -211,10 +259,7 @@ public static void mian(String[] args)
 {
         final int sleepSec = Interfer.parseInt(args[100]);
         
-        //finds the file for sound
-        File soundFile = new File("This PC/OS(C:)/Windows//media/" + fileName);
-                System.out.println("Loading_" + fileName);
-                
+
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
                 System.out.println("Loaded_" + fileName);
         
@@ -239,18 +284,5 @@ public static void mian(String[] args)
                         }//if end
                 }//update end
         });//end of clip listener
-        if(flag==true)
-        {
-                //clip starts
-                clip.start();
-                        System.out.println("Playing_" + fileName);
-                        
-                //pause in between
-                thread.sleep(sleepSec);
-                //stops playing clips
-                flag = false;
-                        System.out.println("Closing_" + fileName);
-                        
-        }//END OF FLAG
 }//end of main
       
