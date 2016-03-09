@@ -37,42 +37,42 @@ public class Beatbox extends JFrame implements ActionListener {
                         System.out.println("Element0_created");
                                 
                                         System.out.println("Loading_Sound_Alarm01.wav");
-                                File soundFile0 = new File("This PC/OS(C:)/Windows//media/Alarm01.wav");
+                                File soundFile0 = new File("This PC/OS(C:)/Windows/media/Alarm01.wav");
                                         System.out.println("Sound_Alarm01.wav_Loaded");
                                 
                 anArray[1] = "Alarm02.wav";
                         System.out.println("Element1_created");
                         
                                         System.out.println("Loading_Sound_Alarm02.wav");
-                                File soundFile1 = new File("This PC/OS(C:)/Windows//media/Alarm02.wav");
+                                File soundFile1 = new File("This PC/OS(C:)/Windows/media/Alarm02.wav");
                                         System.out.println("Sound_Alarm02.wav_Loaded");
                                 
                 anArray[2] = "tada.wav";
                         System.out.println("Element2_created");
                 
                                         System.out.println("Loading_Sound_tada.wav");
-                                File soundFile2 = new File("This PC/OS(C:)/Windows//media/tada.wav");
+                                File soundFile2 = new File("This PC/OS(C:)/Windows/media/tada.wav");
                                         System.out.println("Sound_tada.wav_Loaded");
                                 
                 anArray[3] = "Alarm03.wav";
                         System.out.println("Element3_created");
                         
                                         System.out.println("Loading_Sound_Alarm03.wav");
-                                File soundFile3 = new File("This PC/OS(C:)/Windows//media/Alarm03.wav");
+                                File soundFile3 = new File("This PC/OS(C:)/Windows/media/Alarm03.wav");
                                         System.out.println("Sound_Alarm03.wav_Loaded");
                                 
                 anArray[4] = "Alarm04.wav";
                         System.out.println("Element4_created");
                 
                                         System.out.println("Loading_Sound_Alarm04.wav");
-                                File soundFile4 = new File("This PC/OS(C:)/Windows//media/Alarm04.wav");
+                                File soundFile4 = new File("This PC/OS(C:)/Windows/media/Alarm04.wav");
                                         System.out.println("Sound_Alarm04.wav_Loaded");
                                 
                 anArray[5] = "notify.wav";
                         System.out.println("Element5_created");
                 
                                         System.out.println("Loading_Sound_notify.wav");
-                                File soundFile5 = new File("This PC/OS(C:)/Windows//media/notify.wav");
+                                File soundFile5 = new File("This PC/OS(C:)/Windows/media/notify.wav");
                                         System.out.println("Sound_notify.wav_Loaded");
                                 
                                         System.out.println("Array_List_Created");
@@ -111,60 +111,120 @@ public class Beatbox extends JFrame implements ActionListener {
                 buttonPanel.setLayout( new GridLayout(1 , 8) );
                 
                         System.out.println("Creating_Record_Button");
+                try
+                {
                 button = new JButton( "Record" );
                 button.setActionCommand( " Seven " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button7");
+                }else
+                {
                         System.out.println("Record_Button_Added_To_ButtonPanel");
+                }
                 
                         System.out.println("Creating_Button1");
+                try
+                {
                 button = new JButton( "Sound1" );
                 button.setActionCommand( " One " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button1");
+                }else
                         System.out.println("Sound1_Button_Added_To_ButtonPanel");
+                }
                 
                         System.out.println("Creating_Button2");
+                try
+                {
                 button = new JButton( "Sound2" );
                 button.setActionCommand( " Two " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button2");
+                }else
+                {
                         System.out.println("Sound2_Button_Added_To_ButtonPanel");
-                
+                }
                         System.out.println("Creating_Button3");
-                button = new JButton( "Sound3" );
-                button.setActionCommand( " Three " );
-                button.addActionCommand( this );
-                buttonPanel.add( button );
+                try
+                {
+                        button = new JButton( "Sound3" );
+                        button.setActionCommand( " Three " );
+                        button.addActionCommand( this );
+                        buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button3");
+                }else
+                {
                         System.out.println("Sound3_Button_Added_To_ButtonPanel");
-                
+                }
                         System.out.println("Creating_Sound4");
+                try
+                {
                 button = new JButton( "Sound4" );
                 button.setActionCommand( " Four " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button4");
+                }catch
+                {
                         System.out.println("Sound4_Button_Added_To_ButtonPanel");
+                }
                 
-                System.out.println("Creating_Button5");
+                        System.out.println("Creating_Button5");
+                try
+                {
                 button = new JButton( "Sound5" );
                 button.setActionCommand( " Five " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button5");
+                }else
+                {
                         System.out.println("Sound5_Button_Added_To_ButtonPanel");
+                }
                 
                         System.out.println("Creating_Button6");
+                try{
                 button = new JButton( "Sound6" );
                 button.setActionCommand( " Six " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button6");
+                }else
+                {
                         System.out.println("Sound6_Button_Added_To_ButtonPanel");
+                }
                 
                         System.out.println("Creating_Play_Button");
+                try
+                {
                 button = new JButton( "Play" );
                 button.setActionCommand( " Eight " );
                 button.addActionCommand( this );
                 buttonPanel.add( button );
+                }catch
+                {
+                        System.out.println("Failed_To_Create_Button8");
+                }else
+                {
                         System.out.println("Play_Button_Added_To_ButtonPanel");
+                }
                 
                         System.out.println("Adding_Buttons_To_ButtonPanel");
                 add(buttonPanel, BorderLayout.SOUTH);
@@ -184,8 +244,8 @@ public class Beatbox extends JFrame implements ActionListener {
                 
         }// layout test end
         
-        public void  actionPerformed( SctionEvent e ){
-                JButton button = (JButton)e.getSource();
+        public void  actionPerformed( SctionEvent f ){
+                JButton button = (JButton)f.getSource();
                 
                 //button actions 
                 switch(button.getActionCommand() ) {
@@ -274,11 +334,11 @@ public static void mian(String[] args)
         final int sleepSec = Interfer.parseInt(args[100]);
         
                 System.out.println("Total_Sounds_Played: " + c);
-        
+        try
+        {  
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
                 System.out.println("Loaded_" + fileName);
-        try
-        {                
+                      
                 //gets the data for the clip
                 DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
                         System.out.println("Data_retrieved_for_" + fileName);
@@ -300,21 +360,21 @@ public static void mian(String[] args)
                                 }//if end
                         }//update end
                 });//end of clip listener
-        }catch (MalformedURLException er) 
+        }catch (MalformedURLException e) 
                 {
-                    throw new RuntimeException("Sound: Malformed URL: " + er);
+                    throw new RuntimeException("Sound: Malformed URL: " + e);
                 }
-                catch (UnsupportedAudioFileException er) 
+                catch (UnsupportedAudioFileException e) 
                 {
-                    throw new RuntimeException("Sound: Unsupported Audio File: " + er);
+                    throw new RuntimeException("Sound: Unsupported Audio File: " + e);
                 }
-                catch (IOException er) 
+                catch (IOException e) 
                 {
-                    throw new RuntimeException("Sound: Input/Output Error: " + er);
+                    throw new RuntimeException("Sound: Input/Output Error: " + e);
                 }
-                catch (LineUnavailableException er) 
+                catch (LineUnavailableException e) 
                 {
-                    throw new RuntimeException("Sound: Line Unavailable: " + er);
+                    throw new RuntimeException("Sound: Line Unavailable: " + e);
                 }
 }//end of main
       
