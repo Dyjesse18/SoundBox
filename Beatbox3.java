@@ -52,13 +52,6 @@ public class Beatbox extends JFrame implements ActionListener {
                 
                                         System.out.println("Loading_Sound_tada.wav");
                                 File soundFile2 = new File("This PC/OS(C:)/Windows//media/tada.wav");
-                                if (soundFile2.exists()) 
-                                {
-                                        Clip clip = (Clip) AudioSystem.getLine(info);
-                                                System.out.println("Temporary_Name_For_" + FileName +"_Is_Clip");
-                                
-                                }
-                                        
                                         System.out.println("Sound_tada.wav_Loaded");
                                 
                 anArray[3] = "Alarm03.wav";
@@ -290,6 +283,9 @@ public static void mian(String[] args)
                 DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
                         System.out.println("Data_retrieved_for_" + fileName);
                 
+                Clip clip = (Clip) AudioSystem.getLine(info);
+                        System.out.println("Temporary_Name_For_" + FileName +"_Is_Clip");
+                
                 clip.open(sound);
                         System.out.println("Opening_" + fileName);
         
@@ -304,10 +300,21 @@ public static void mian(String[] args)
                                 }//if end
                         }//update end
                 });//end of clip listener
-        }
-        catch (LineUnavailableException er) 
-        {
-                throw new RuntimeException("Sound: Line Unavailable: " + er);
-        }//end of catch
+        }catch (MalformedURLException er) 
+                {
+                    throw new RuntimeException("Sound: Malformed URL: " + er);
+                }
+                catch (UnsupportedAudioFileException er) 
+                {
+                    throw new RuntimeException("Sound: Unsupported Audio File: " + er);
+                }
+                catch (IOException er) 
+                {
+                    throw new RuntimeException("Sound: Input/Output Error: " + er);
+                }
+                catch (LineUnavailableException er) 
+                {
+                    throw new RuntimeException("Sound: Line Unavailable: " + er);
+                }
 }//end of main
       
