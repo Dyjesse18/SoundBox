@@ -23,6 +23,7 @@ public class Beatbox extends JFrame implements ActionListener {
         private JPanel mainPanel;
         private JPanel buttonPanel;
         boolean static flag = false;
+        private double c = 0;
         
         public LayoutTest() {
                 
@@ -34,56 +35,69 @@ public class Beatbox extends JFrame implements ActionListener {
                 //array list for sounds
                 anArray[0] = "Alarm01.wav";
                         System.out.println("Element0_created");
-                        
+                                
+                                        System.out.println("Loading_Sound_Alarm01.wav");
                                 File soundFile0 = new File("This PC/OS(C:)/Windows//media/Alarm01.wav");
                                         System.out.println("Sound_Alarm01.wav_Loaded");
                                 
                 anArray[1] = "Alarm02.wav";
                         System.out.println("Element1_created");
                         
+                                        System.out.println("Loading_Sound_Alarm02.wav");
                                 File soundFile1 = new File("This PC/OS(C:)/Windows//media/Alarm02.wav");
                                         System.out.println("Sound_Alarm02.wav_Loaded");
                                 
                 anArray[2] = "tada.wav";
                         System.out.println("Element2_created");
                 
+                                        System.out.println("Loading_Sound_tada.wav");
                                 File soundFile2 = new File("This PC/OS(C:)/Windows//media/tada.wav");
+                                if (soundFile2.exists()) 
+                                {
+                                        Clip clip = (Clip) AudioSystem.getLine(info);
+                                                System.out.println("Temporary_Name_For_" + FileName +"_Is_Clip");
+                                
+                                }
+                                        
                                         System.out.println("Sound_tada.wav_Loaded");
                                 
                 anArray[3] = "Alarm03.wav";
                         System.out.println("Element3_created");
-                
+                        
+                                        System.out.println("Loading_Sound_Alarm03.wav");
                                 File soundFile3 = new File("This PC/OS(C:)/Windows//media/Alarm03.wav");
                                         System.out.println("Sound_Alarm03.wav_Loaded");
                                 
                 anArray[4] = "Alarm04.wav";
                         System.out.println("Element4_created");
                 
+                                        System.out.println("Loading_Sound_Alarm04.wav");
                                 File soundFile4 = new File("This PC/OS(C:)/Windows//media/Alarm04.wav");
                                         System.out.println("Sound_Alarm04.wav_Loaded");
                                 
                 anArray[5] = "notify.wav";
                         System.out.println("Element5_created");
                 
+                                        System.out.println("Loading_Sound_notify.wav");
                                 File soundFile5 = new File("This PC/OS(C:)/Windows//media/notify.wav");
                                         System.out.println("Sound_notify.wav_Loaded");
                                 
                                         System.out.println("Array_List_Created");
                 
+                        System.out.println("Creating_JFrame");
                 JFrame myFrame = new JFrame("Beat_Box");
                         System.out.println("Created_JFrame");
                         
                 myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        System.out.println("Creating_Visibility");
                 myFrame.setVisible( true );
                         System.out.println("Window_Visibilty_Capability_Ready");
                         
                 myFrame.setLayout( new GridLayout( 2, 2, 50, 10 ) );
-                        System.out.println("GridBag_");
+                        System.out.println("Created_GridBag_Layout");
                 layout = new GridBagLayout();
                 myFrame.setLayout( layout );
-                
-                //allows  window to be closed
-                setDefaultClose Operation(JFrame.EXIT_ON_CLOSE);
+                        System.out.println("Added_Layout_To_JFrame");
                 
                 //creates border layout
                 setLayout( new BorderLayout() );
@@ -171,7 +185,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 pack();
                         System.out.println("Window_components_have_been_packed");
                         
-                        System.out.println("");
+                        System.out.println("Enabling_Window_Visibilties");
                 setVisible( true );
                         System.out.println("Window_is_now_visible");
                 
@@ -184,6 +198,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 switch(button.getActionCommand() ) {
                         case " One ":
                                 fileName= anArray[0];
+                                c++;
                                 soundFile = soundFile0;
                                         System.out.println("Selected_Alarm01");
                                         
@@ -194,6 +209,7 @@ public class Beatbox extends JFrame implements ActionListener {
                                 break;
                         case " Two ":
                                 fileName = anArray[1];
+                                c++;
                                 soundFile = soundFile1;
                                         System.out.println("Selected_Alarm02");
                                 
@@ -204,6 +220,7 @@ public class Beatbox extends JFrame implements ActionListener {
                                 break;
                         case " Three ":
                                 fileName = anArray[2];
+                                c++;
                                 soundFile = soundFile2;
                                         System.out.println("Selected_tada");
                                         
@@ -214,8 +231,10 @@ public class Beatbox extends JFrame implements ActionListener {
                                 break;
                         case " Four ":
                                 fileName = anArray[3];
+                                c++;
                                 soundFile = soundFile3;
                                         System.out.println("Selected_Alarm03");
+                                        
                                 //clip starts
                                 clip.start();
                                         System.out.println("Playing_" + fileName);
@@ -224,9 +243,9 @@ public class Beatbox extends JFrame implements ActionListener {
                                 break;
                         case " Five ":
                                 fileName = anArray[4];
+                                c++;
                                 soundFile = soundFile4;
                                         System.out.println("Selected_Alarm04");
-                                
                                 
                                 //clip starts
                                 clip.start();
@@ -235,6 +254,7 @@ public class Beatbox extends JFrame implements ActionListener {
                                 break;
                         case " Six ":
                                 fileName = anArray[5];
+                                c++;
                                 soundFile = soundFile5;
                                         System.out.println("Selected_notify");
                                                 
@@ -257,32 +277,37 @@ public class Beatbox extends JFrame implements ActionListener {
         }//end of action performed
 public static void mian(String[] args)
 {
+        
         final int sleepSec = Interfer.parseInt(args[100]);
         
-
+                System.out.println("Total_Sounds_Played: " + c);
+        
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
                 System.out.println("Loaded_" + fileName);
-        
-        //gets the data for the clip
-        DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
-                System.out.println("Data_retrieved_for_" + fileName);
+        try
+        {                
+                //gets the data for the clip
+                DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
+                        System.out.println("Data_retrieved_for_" + fileName);
                 
-        Clip clip = (Clip) AudioSystem.getLine(info);
-                System.out.println("Temporary_Name_For_" + FileName +"_Is_Clip");
-                
-        clip.open(sound);
-                System.out.println("Opening_" + fileName);
+                clip.open(sound);
+                        System.out.println("Opening_" + fileName);
         
-        clip.addLineListener(new LineListener() 
-        {
-                public void update(LineEvent event) 
+                clip.addLineListener(new LineListener() 
                 {
-                        if (event.getType() == LineEvent.Type.STOP)
+                        public void update(LineEvent event) 
                         {
-                                event.getLine().close();
-                                System.exit(0);
-                        }//if end
-                }//update end
-        });//end of clip listener
+                                if (event.getType() == LineEvent.Type.STOP)
+                                {
+                                        event.getLine().close();
+                                        System.exit(0);
+                                }//if end
+                        }//update end
+                });//end of clip listener
+        }
+        catch (LineUnavailableException er) 
+        {
+                throw new RuntimeException("Sound: Line Unavailable: " + er);
+        }//end of catch
 }//end of main
       
