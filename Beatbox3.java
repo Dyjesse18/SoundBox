@@ -15,6 +15,7 @@ import javax.sound.sampled.LineListener;                //for reading line liste
 //6 buttons
 //1 soundbutton panel
 //play sounds from the windows system
+//records 
 
 public class Beatbox extends JFrame implements ActionListener {
         
@@ -23,7 +24,11 @@ public class Beatbox extends JFrame implements ActionListener {
         private JPanel mainPanel;
         private JPanel buttonPanel;
         private boolean static flag = false;
+        private boolean static flag2 = false;
         private double c = 0;
+        private double a = 0;
+        private double b = 0;
+        private double d = 1
         
         public LayoutTest() {
                 
@@ -255,6 +260,11 @@ public class Beatbox extends JFrame implements ActionListener {
                                 soundFile = soundFile0;
                                         System.out.println("Selected_Alarm01");
                                         
+                                if(flag2 == true)
+                                {
+                                        b++;
+                                        final arryayRec[b] = soundFile0;
+                                }        
                                 //clip starts
                                 clip.start();
                                         System.out.println("Playing_" + fileName);
@@ -265,7 +275,12 @@ public class Beatbox extends JFrame implements ActionListener {
                                 c++;
                                 soundFile = soundFile1;
                                         System.out.println("Selected_Alarm02");
-                                
+                                        
+                                if(flag2 == true)
+                                {
+                                        b++;
+                                        final arryayRec[b] = soundFile1;
+                                }
                                 //clip starts
                                 clip.start();
                                         System.out.println("Playing_" + fileName);
@@ -277,6 +292,11 @@ public class Beatbox extends JFrame implements ActionListener {
                                 soundFile = soundFile2;
                                         System.out.println("Selected_tada");
                                         
+                                if(flag2 == true)
+                                {
+                                        b++;
+                                        final arryayRec[b] = soundFile2;
+                                }//end of if        
                                 //clip starts
                                 clip.start();
                                         System.out.println("Playing_" + fileName); 
@@ -285,9 +305,15 @@ public class Beatbox extends JFrame implements ActionListener {
                         case " Four ":
                                 fileName = anArray[3];
                                 c++;
+                                if(flag2 == true)
+                                {
+                                        b++;
+                                        final arryayRec[b] = soundFile3;
+                                }
                                 soundFile = soundFile3;
                                         System.out.println("Selected_Alarm03");
                                         
+
                                 //clip starts
                                 clip.start();
                                         System.out.println("Playing_" + fileName);
@@ -300,6 +326,11 @@ public class Beatbox extends JFrame implements ActionListener {
                                 soundFile = soundFile4;
                                         System.out.println("Selected_Alarm04");
                                 
+                                if(flag2 == true)
+                                {
+                                        b++;
+                                        final arryayRec[b] = soundFile4;
+                                }//end of if
                                 //clip starts
                                 clip.start();
                                         System.out.println("Playing_" + fileName);
@@ -310,6 +341,12 @@ public class Beatbox extends JFrame implements ActionListener {
                                 c++;
                                 soundFile = soundFile5;
                                         System.out.println("Selected_notify");
+                                        
+                                if(flag2 == true)
+                                {
+                                        b++;
+                                        final arryayRec[b] = soundFile5;
+                                }//end of if
                                                 
                                 //clip starts
                                 clip.start();
@@ -318,9 +355,34 @@ public class Beatbox extends JFrame implements ActionListener {
                                 break;
                         case " Seven ":
                                 //gonna record all the buttons pushed
+                                a++;
+                                if(a == 2)
+                                {
+                                        c = 0;
+                                        flag2 = true;
+                                }//end of if a = 2
+                                if(a == 3)
+                                {
+                                        a = 0;
+                                        flag2 = false;
+                                }//end of if a = 3
+                                if(a == 1)
+                                {       
+                                        arrayRec.clear();
+                                        a ==2;
+                                }//end of i a =1
                                 break;
                         case " Eight ":
                                 //gonna play the recorded mix
+                                d++;
+                                if(d == 2)
+                                {
+                                        while(b<= c)
+                                        {
+                                                clip.start(arrayRec);        
+                                        }//while b is less or equal to c
+                                        d = 1;
+                                }//if d = 2 end
                                 break;
                         default:
                                 JOptionPane.showMessageDialog( this, "WHERE ARE YOU! THIS DOESNT EXIST!OH GOD HOW DID YOU GET HERE" );
