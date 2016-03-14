@@ -3,12 +3,12 @@ import java.awt.event.*;
 import java.swing.*;
 import java.io.*;
 import java.lang.*;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
+import javax.sound.sampled.AudioInputStream;            //plays the clips
+import javax.sound.sampled.AudioSystem;                 //allows the clips to be played
+import javax.sound.sampled.Clip;                        //allows preloaded audio files
+import javax.sound.sampled.DataLine;                    //for using Data line
+import javax.sound.sampled.LineEvent;                   //for using  Line events
+import javax.sound.sampled.LineListener;                //for reading line listening
 
 
 //this program will have:
@@ -22,7 +22,7 @@ public class Beatbox extends JFrame implements ActionListener {
         private static final long serialVersionUID = 1;
         private JPanel mainPanel;
         private JPanel buttonPanel;
-        boolean static flag = false;
+        private boolean static flag = false;
         private double c = 0;
         
         public LayoutTest() {
@@ -123,7 +123,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }else
                 {
                         System.out.println("Record_Button_Added_To_ButtonPanel");
-                }
+                }//end of else record
                 
                         System.out.println("Creating_Button1");
                 try
@@ -137,7 +137,7 @@ public class Beatbox extends JFrame implements ActionListener {
                         System.out.println("Failed_To_Create_Button1");
                 }else
                         System.out.println("Sound1_Button_Added_To_ButtonPanel");
-                }
+                }//end of else sound1
                 
                         System.out.println("Creating_Button2");
                 try
@@ -152,7 +152,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }else
                 {
                         System.out.println("Sound2_Button_Added_To_ButtonPanel");
-                }
+                }//end of else sound 2
                         System.out.println("Creating_Button3");
                 try
                 {
@@ -166,7 +166,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }else
                 {
                         System.out.println("Sound3_Button_Added_To_ButtonPanel");
-                }
+                }//end of else sound3
                         System.out.println("Creating_Sound4");
                 try
                 {
@@ -180,7 +180,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }catch
                 {
                         System.out.println("Sound4_Button_Added_To_ButtonPanel");
-                }
+                }//end of else sound 4
                 
                         System.out.println("Creating_Button5");
                 try
@@ -195,7 +195,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }else
                 {
                         System.out.println("Sound5_Button_Added_To_ButtonPanel");
-                }
+                }//end of else sound5
                 
                         System.out.println("Creating_Button6");
                 try{
@@ -209,7 +209,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }else
                 {
                         System.out.println("Sound6_Button_Added_To_ButtonPanel");
-                }
+                }//end of else sound 6
                 
                         System.out.println("Creating_Play_Button");
                 try
@@ -224,7 +224,7 @@ public class Beatbox extends JFrame implements ActionListener {
                 }else
                 {
                         System.out.println("Play_Button_Added_To_ButtonPanel");
-                }
+                }//end of else play
                 
                         System.out.println("Adding_Buttons_To_ButtonPanel");
                 add(buttonPanel, BorderLayout.SOUTH);
@@ -330,7 +330,7 @@ public class Beatbox extends JFrame implements ActionListener {
         }//end of action performed
 public static void mian(String[] args)
 {
-        
+        new LayoutTest();
         final int sleepSec = Interfer.parseInt(args[100]);
         
                 System.out.println("Total_Sounds_Played: " + c);
@@ -363,18 +363,18 @@ public static void mian(String[] args)
         }catch (MalformedURLException e) 
                 {
                     throw new RuntimeException("Sound: Malformed URL: " + e);
-                }
+                }//end of MalformedURLException
                 catch (UnsupportedAudioFileException e) 
                 {
                     throw new RuntimeException("Sound: Unsupported Audio File: " + e);
-                }
+                }//end of UnSupportedAudioFileException
                 catch (IOException e) 
                 {
                     throw new RuntimeException("Sound: Input/Output Error: " + e);
-                }
+                }//end of IOException
                 catch (LineUnavailableException e) 
                 {
                     throw new RuntimeException("Sound: Line Unavailable: " + e);
-                }
+                }//end of lineUnavailableException
 }//end of main
       
